@@ -1,0 +1,89 @@
+.day_of_the_42 {
+	top: 10%; left: 10px;
+	position: relative;
+}
+.loupe {
+	top: -65%; left: 1110px;
+	position: relative;
+}
+.close {
+	top: -100%; left: 1370px;
+	position: relative;
+}
+.reload {
+	top: -195%; left: 1370px;
+	position: relative;
+}
+.doft {
+	top: 10px; left: 10px;
+	position: relative;
+}
+.pics_from_left_block {
+	top: 12px; left: 40px;
+	position: relative;
+}
+.pics_from_right_block {
+	top: 12px; left: 40px;
+	position: relative;
+}
+#upper_block {
+	margin: 0 auto;
+	width: 1400px; height: 150px;
+	background-color: #8f8f8f;
+	border-radius: 5px;
+	box-shadow: 10px 10px 12px 6px #000000;
+}
+#center_block {
+	margin: 0 auto;
+	width: 960px; height: 520px;
+	background-color: #8f8f8f;
+	border-radius: 5px;
+	box-shadow: 10px 10px 12px 6px #000000;
+	top: 40px;
+	position: relative;
+}
+#left_block {
+	margin: 0 auto;
+	width: 150px; height: 400px;
+	background-color: #8f8f8f;
+	border-radius: 5px;
+	box-shadow: 10px 10px 12px 6px #000000;
+	top: -480px; left: -600px;
+	position: relative;
+}
+#right_block {
+	margin: 0 auto;
+	width: 150px; height: 400px;
+	background-color: #8f8f8f;
+	border-radius: 5px;
+	box-shadow: 10px 10px 12px 6px #000000;
+	top: -880px; left: 600px;
+	position: relative;
+}
+#question_block {
+	margin: 0 auto;
+	width: 510px; height: 160px;
+	background-color: #7DFF5A;
+	border-radius: 5px;
+	box-shadow: 10px 10px 12px 6px #000000;
+	top: -820px; left: -440px;
+	position: relative;
+}
+#ikea {
+	display: block; 
+	position: relative; 
+	width: 100px; 
+	height: 100px; 
+	z-index: 1; 
+	top: 330px; 
+	left: 310px
+}
+#apple {
+	display: block; 
+	position: relative; 
+	width: 170px; 
+	height: 110px; 
+	z-index: 1;
+	top: 190px;
+	left: 745px;
+}
