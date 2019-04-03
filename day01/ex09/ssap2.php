@@ -1,47 +1,39 @@
 #!/usr/bin/php
 <?php
-	function ascii_sort($a, $b)
+	function mysort($e1, $e2)
 	{
-		$len_a = strlen($a);
-		$len_b = strlen($b);
-		while ($i < $len_a && $i < $len_b)
-		{
-			if ($a[$i] > $b[$i])
-				return (TRUE);
-			if ($a[$i] < $b[$i])
-				return (FALSE);
-			$i++;
-		}
+		$i = 0;
+    	$chars = "abcdefghijklmnopqrstuvwxyz0123456789!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
+    	$le1 = strtolower($e1);
+    	$le2 = strtolower($e2);
+    	$len1 = strlen($le1);
+    	$len2 = strlen($le2);
+    	while ($i < $len1 || $i < $len2)
+    	{
+        	$index_e1 = strpos($chars, $le1[$i]);
+        	$index_e2 = strpos($chars, $le2[$i]);
+        	if ($index_e1 < $index_e2)
+            	return (FALSE);
+        	else if ($index_e1 > $index_e2)
+            	return (TRUE);
+        	$i++;
+        }
 	}
 
-	if ($argc == 1)
-		return;
-	array_shift($argv);
-	$str = implode(" ", $argv);
-	$argv = explode(" ", $str);
-	foreach($argv as $elem)
-		if (ctype_digit($elem))
-			$digits[] = $elem;
-		else if (ctype_alpha($elem))
-			$strings[] = $elem;
-		else
-			$other[] = $elem;
-	if(!empty($strings))
+	if ($argc > 1)
 	{
-		natcasesort($strings);
-		$final[] = $strings;
+		array_shift($argv);
+		foreach ($argv as $elem)
+		{
+			$tmp_arr = explode(" ", $elem);
+			foreach ($tmp_arr as $word)
+				if ($word)
+					$final_arr[] = $word;
+		}
+		if ($final_arr)
+			usort($final_arr, "mysort");
+		if ($final_arr)
+			foreach ($final_arr as $word)
+				echo $word."\n";
 	}
-	if (!empty($digits))
-	{
-		usort($digits, "ascii_sort");
-		$final[] = $digits;
-	}
-	if (!empty($other))
-	{
-		usort($other, "ascii_sort");
-		$final[] = $other;
-	}
-	foreach($final as $elem)
-		foreach($elem as $part)
-			echo "$part\n";
 ?>

@@ -3,5 +3,6 @@
 	if ($argc == 1)
 		return;
 	while (++$i != $argc)
-		echo "$argv[$i]\n";
+		if ($argv[$i])	
+			echo "$argv[$i]\n";
 ?>
