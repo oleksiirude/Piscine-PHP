@@ -40,36 +40,36 @@
 
 	function validate_dayname($dayname)
 	{
-		if (!preg_match("/^[L|l]undi|^[M|m]ardi|^[M|m]ercredi|^[J|j]eudi|^[V|v]endredi|^[S|s]amedi|^[D|d]imanche/", $dayname))
+		if (!preg_match("/^[L|l]undi$|^[M|m]ardi$|^[M|m]ercredi$|^[J|j]eudi$|^[V|v]endredi$|^[S|s]amedi$|^[D|d]imanche$/", $dayname))
 			error_msg();
 
 	}
 
 	function parse_and_validate_month($month)
 	{
-		if (preg_match("/^[J|j]anvier/", $month))
+		if (preg_match("/^[J|j]anvier$/", $month))
 			return (1);
-		else if (preg_match("/^[F|f]evrier/", $month))
+		else if (preg_match("/^[F|f]evrier$/", $month))
 			return (2);
-		else if (preg_match("/^[M|m]ars/", $month))
+		else if (preg_match("/^[M|m]ars$/", $month))
 			return (3);
-		else if (preg_match("/^[A|a]vril/", $month))
+		else if (preg_match("/^[A|a]vril$/", $month))
 			return (4);
-		else if (preg_match("/^[M|m]ai/", $month))
+		else if (preg_match("/^[M|m]ai$/", $month))
 			return (5);
-		else if (preg_match("/^[J|j]uin/", $month))
+		else if (preg_match("/^[J|j]uin$/", $month))
 			return (6);
-		else if (preg_match("/^[J|j]uillet/", $month))
+		else if (preg_match("/^[J|j]uillet$/", $month))
 			return (7);
-		else if (preg_match("/^[A|a]out/", $month))
+		else if (preg_match("/^[A|a]out$/", $month))
 			return (8);
-		else if (preg_match("/^[S|s]eptembre/", $month))
+		else if (preg_match("/^[S|s]eptembre$/", $month))
 			return (9);
-		else if (preg_match("/^[O|o]ctobre/", $month))
+		else if (preg_match("/^[O|o]ctobre$/", $month))
 			return (10);
-		else if (preg_match("/^[N|n]ovembre/", $month))
+		else if (preg_match("/^[N|n]ovembre$/", $month))
 			return (11);
-		else if (preg_match("/^[D|d]ecembre/", $month))
+		else if (preg_match("/^[D|d]ecembre$/", $month))
 			return (12);
 		else
 			error_msg();
