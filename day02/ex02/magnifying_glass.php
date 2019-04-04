@@ -1,23 +1,20 @@
 #!/usr/bin/php
 <?php
-	if ($argc == 1 || $argc > 2)
+	if ($argc < 2 || !is_readable($argv[1]))
 		return;
 	if(!($source_code = file_get_contents($argv[1])))
 		return;
-	echo $source_code."\n";
-	if ($source_code)
-		return;
-	foreach ($source_code as $line)
+	echo preg_replace_callback("/<a [\w\W]*?<\/a>/i", function($match)
 	{
-		if ($line)
+		$title = preg_replace_callback("/title=(\".*?\")/", function($m1)
 		{
-			$line = preg_replace_callback("/<a.*title=\"(.*?)\"/", function ($matches) {
-				return (str_replace($matches[1], strtoupper($matches[1]), $matches[0]));
-			}, $line);
-			$line = preg_replace_callback("/<a.*?>(.*?)</", function ($matches) {
-				return (str_replace($matches[1], strtoupper($matches[1]), $matches[0]));
-			}, $line);
-			// echo $line."\n";
-		}
-	}
+			return ("title=".strtoupper($m1[1]));
+		}, $match[0]);
+
+		return (preg_replace_callback("/(>[\w\W]*?<)/i", function($m2)
+		{
+			return (strtoupper($m2[1]));
+		}, $title));
+		return ($match[0]);
+	}, $source_code);
 ?>
