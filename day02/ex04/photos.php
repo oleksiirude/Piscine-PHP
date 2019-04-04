@@ -3,7 +3,6 @@
 	function download_pictures($link, $name, $dir_name)
 	{
 		$path = $dir_name."/".$name;
-		echo $link."\n";
 		$fd = fopen($path, w);
 		$ch = curl_init($link);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -50,31 +49,26 @@
 
 	$i = -1;
 	if ($argc == 1 || $argc > 2)
-	{
-		echo "Usage: ./photos \"http[s]://www.42.fr\"\n";
-		return;
-	}
+		exit("Usage: ./photos \"http[s]://www.42.fr\"\n");
 	if(!($source_code = trim(@file_get_contents($argv[1]))))
-	{
-		echo "Program cannot work with <$argv[1]> URL. Aborting...\n";
-		return;
-	}
+		exit("Program cannot work with <$argv[1]> URL. Aborting...\n");
 	$source_code = explode("\n", $source_code);
 	$dir_name = get_dir_name($argv[1]);
 	$links = parse_and_validate_links($source_code, $dir_name);
 	if (!$links)
-	{
-		echo "There is no available pics for download at <$argv[1]> URL. Aborting...\n";
-		return;
-	}
+		exit("There is no available pics for download at <$argv[1]> URL. Aborting...\n");
 	$names = get_names($links);
 	if (!file_exists($dir_name))
 		mkdir($dir_name);
 	else
-	{
-		echo "Directory <$dir_name> already exists! Aborting...\n";
-		return;
-	}
+		exit("Directory <$dir_name> already exists! Aborting...\n");
 	foreach ($links as $link)
 		download_pictures($link, $names[++$i], $dir_name);
+	$fd = fopen($dir_name, "r");
+	$data = fstat($fd);
+	if ($data[size] == 68)
+	{
+		echo "There is no available pics for download at <$argv[1]> URL. Aborting...\n";
+		rmdir($dir_name);
+	}
 ?>

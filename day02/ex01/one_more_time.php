@@ -17,7 +17,7 @@
 
 	function parse_and_validate_year($year)
 	{
-		if ($year < 1970 || $year > 2100)
+		if ($year < 1970 || $year > 3000)
 			error_msg();
 		return ($year);
 	}
