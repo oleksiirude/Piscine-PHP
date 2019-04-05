@@ -10,16 +10,22 @@
 
 	function parse_and_validate_day($day)
 	{
-		if ($day < 1 || $day > 31)
-			error_msg();
-		return ($day);
+		if (ctype_digit($day))
+		{
+			if ($day < 1 || $day > 31)
+				error_msg();
+			return ($day);
+		}
 	}
 
 	function parse_and_validate_year($year)
 	{
-		if ($year < 1970 || $year > 3000)
-			error_msg();
-		return ($year);
+		if (ctype_digit($year))
+		{
+			if ($year < 1970 || $year > 3000)
+				error_msg();
+			return ($year);
+		}
 	}
 
 	function parse_and_validate_time($time)
