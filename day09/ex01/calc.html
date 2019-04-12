@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+</head>
+    <style type="text/css">
+        body {
+            background-color: peachpuff;
+        }
+        .calc {
+            margin-top: 25%;
+            margin-left: 25%;
+        }
+        .input {
+            border:1px solid #9E9E9E;
+            padding: 8px;
+            font-size: 11px;
+            background: lightyellow;
+        }
+    </style>
+<script>
+    var timerId = setInterval(function () {
+        alert("Please, use me...")
+    }, 30000);
+</script>
+<body>
+    <div id="c" class="calc">
+        <input id="a" class="input" type="text" value="">
+        <select name="oper" class="input" id="oper">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+            <option value="%">%</option>
+        </select>
+        <input id="b" class="input" type="text" value="">
+        <input type="submit" class="input" value="Try me!" onclick="calc(a.value, b.value, oper.value)">
+    </div>
+</body>
+    <script type="text/javascript">
+
+        function isNegative0(n) {
+            return n === 0 && (1 / n) === -Infinity
+        }
+
+        function calc(a, b, oper) {
+            var res;
+
+            clearInterval(timerId);
+            timerId = setInterval(function () {
+                alert("Please, use me...")
+            }, 30000);
+            if (isNaN(a) || isNaN(b) || a < 0 || b < 0 || ~a.indexOf(".") || ~b.indexOf(".") || !a || !b) {
+                return (alert("Error :(") & console.log("Error :("));
+                }
+            a = parseInt(a);
+            b = parseInt(b);
+            if (isNegative0(a) || isNegative0(b))
+                return (alert("Error :(") & console.log("Error :("));
+            switch (oper) {
+                case '+':
+                   res = a + b;
+                   break;
+                case '-':
+                    res = a - b;
+                    break;
+                case '*':
+                    res = a * b;
+                    break;
+                case '/':
+                    res = a / b;
+                    break;
+                case '%':
+                    res = a % b;
+            }
+            if (!isFinite(res)) {
+                return (alert("It’s over 9000!") & console.log("It’s over 9000!"));
+            }
+            else
+                return (alert(res) & console.log(res));
+        }
+        </script>
+</html>
