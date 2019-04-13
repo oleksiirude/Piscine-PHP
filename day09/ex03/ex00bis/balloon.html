@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Baloon</title>
+</head>
+<style type="text/css">
+    body {
+        text-align: center;
+        background-color: lemonchiffon;
+    }
+    .balloon {
+        display: inline-block;
+        margin-top: 25%;
+        height: 200px;
+        width: 200px;
+        background-color: red;
+        border-radius: 200px;
+        box-shadow: 1px 1px 2px 2px gray;
+    }
+</style>
+<body>
+<div id="obj" class="balloon"></div>
+</body>
+<script src="https://code.jquery.com/jquery-3.4.0.slim.min.js"></script>
+<script type="text/javascript">
+    var balloon = $(".balloon");
+
+
+    balloon.click(function () {
+
+        function plus_size(init) {
+            console.log(init);
+            if (init > 420)
+                init = 200;
+            else
+                init += 10;
+            return (init);
+        }
+
+        function plus_color(color) {
+            if (color === "rgb(255, 0, 0)")
+                return ("green");
+            else if (color === "rgb(0, 128, 0)")
+                return ("blue");
+            else if (color === "rgb(0, 0, 255)")
+                return ("red");
+        }
+
+        var init;
+        init = plus_size(parseInt(balloon.css('width')));
+        balloon.css('background-color', plus_color(balloon.css('background-color')));
+        balloon.css('width', init + 'px');
+        balloon.css('height', init + 'px');
+        balloon.css('border-radius', init + 'px');
+    });
+
+    balloon.mouseleave(function() {
+
+        console.log("sdas");
+
+        function minus_color(color) {
+            console.log("111111");
+            if (color === "rgb(255, 0, 0)")
+                return ("blue");
+            else if (color === "rgb(0, 128, 0)")
+                return ("red");
+            else if (color === "rgb(0, 0, 255)")
+                return ("green");
+        }
+
+        function minus_size(init) {
+            console.log("222222");
+            if (init <= 420 && init >= 200)
+                init -= 5;
+            return (init);
+        }
+
+        var init;
+
+        if (parseInt(balloon.css('width')) > 200) {
+            init = minus_size(parseInt(balloon.css('width')));
+            balloon.css('background-color', minus_color(balloon.css('background-color')));
+            balloon.css('width', init + 'px');
+            balloon.css('height', init + 'px');
+            balloon.css('border-radius', init + 'px');
+        }
+    });
+</script>
+</html>

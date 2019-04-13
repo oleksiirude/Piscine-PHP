@@ -60,6 +60,7 @@ function array_filler() {
             var j = 0;
             var tmp = event.target.id;
 
+            console.log("tmp->", tmp);
             tmp = parseInt(tmp);
             while (j < array.length)
             {
@@ -69,8 +70,11 @@ function array_filler() {
                     break;
                 new_array[k++] = array[j++];
             }
-            set_cookie("name", new_array, 1);
+            array = new_array;
+            console.log(event.target);
             list.removeChild(event.target);
+            console.log(new_array);
+            set_cookie("name", new_array, 1);
         }
     });
 
