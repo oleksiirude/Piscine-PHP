@@ -17,5 +17,5 @@ Here you can see more details about pool days:
 
 Pic from rush00:
 ![alt text](https://github.com/oleksiirude/Piscine-PHP/blob/master/add_img/minishop.png)
-Pic from day09/ex02 TODO list:
+Pic from day09/ex02 TODOlist:
 ![alt text](https://github.com/oleksiirude/Piscine-PHP/blob/master/add_img/todolist.png)
