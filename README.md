@@ -1,5 +1,5 @@
 # Piscine-PHP
-In this project at UNIT Factory (School 42) I swam in the pool with basic web technologies.
+In this project at UNIT Factory (School 42) I was swimming in the pool with basic web technologies.
 
 Here you can see more details about pool days:
 1.  Day 00 - HTML, CSS
