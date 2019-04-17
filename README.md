@@ -1,4 +1,4 @@
-# Piscine-PHP
+# Piscine-PHP [104/125]
 In this project at UNIT Factory (School 42) I was swimming in the pool with basic web technologies.
 
 Here you can see more details about pool days:
